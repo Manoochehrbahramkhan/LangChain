@@ -10,13 +10,14 @@ from langchain.tools import tool
 from langchain.agents.middleware import SummarizationMiddleware
 
 load_dotenv()
-api_key = os.getenv("OLLAMA_API_KEY")
-api_url = os.getenv("OLLAMA_API_URL")
-api_model = os.getenv("OLLAMA_API_MODEL")
+api_key = os.getenv("OPENAI_API_KEY")
+api_url = os.getenv("OPENAI_API_URL")
+api_model = os.getenv("OPENAI_API_MODEL")
 
 
 llm = init_chat_model(
     model=api_model,
+    model_provider="openai",
     api_key=api_key,
     base_url=api_url,
     stream_usage=True
